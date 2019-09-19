@@ -1,0 +1,8 @@
+*.gv
+*.gv.pdf
+.ipynb_checkpoints/
+__pycache__/
+/theory/*.aux
+/theory/*.log
+/theory/*.synctex.gz
+

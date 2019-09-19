@@ -1,0 +1,88 @@
+\documentclass[12pt,a4paper]{article}
+
+\usepackage[T2A]{fontenc} % Поддержка русских букв
+\usepackage[utf8]{inputenc} % Кодировка utf8
+\usepackage[english, russian]{babel} % Языки: русский, английский
+% \usepackage{pscyr} % Нормальные шрифты
+
+\usepackage{amsmath, amssymb}
+\usepackage{amscd}
+\usepackage{amsthm}
+\usepackage{graphicx}
+\usepackage[left=2cm,right=2cm,top=2cm,bottom=1.5cm]{geometry}
+\usepackage{fancyhdr}
+%\parindent = 0em %расстояние от края в красных строках
+
+\usepackage{graphicx}
+\graphicspath{ {./pic/} }
+
+% чтобы itemize работал без лишних пробелов
+\usepackage{enumitem}
+\setlist{nolistsep,
+	% itemsep=0.3cm,
+	% parsep=4pt
+}
+
+\def\Z{\mathbb{Z}}
+\def\N{\mathbb{N}}
+\def\R{\mathbb{R}}
+
+\newcounter{znum}
+\newcommand{\z}[1]{\addtocounter{znum}{1} \textbf{Задача \arabic{znum}#1. }}
+
+\newcounter{defnum}
+\newcommand{\df}[1]{\addtocounter{defnum}{1} \textbf{Определение \arabic{defnum}.} {\it #1}}
+
+\newcommand{\zp}[1]{\par~~~~\textbf{#1)}}
+
+\begin{document}
+\pagestyle{empty}
+
+\begin{center} \Large \textbf{Производные на скорую руку.}
+\end{center}
+
+{\it {\bf Определение 1.} Число $a$ называют производной функции $f$ в точке $x$, если для любой бесконечно малой последовательности ненулевых чисел $(\varepsilon_n)$ предел последовательности $\frac{f(x + \varepsilon_n) - f(x)}{\varepsilon_n}$ существует и равен $a$.}
+
+В этом листке для двух функций $f$ и $g$ будут встречаться записи вида $f(\varepsilon) = o(g(\varepsilon))$. Они означают, что для любой бесконечно малой последовательности $(\varepsilon_n)$ ненулевых чисел, последовательность $\frac{f(\varepsilon_n)}{|g(\varepsilon_n)|}$ -- бесконечно малая. При этом предполагается, что $g(\varepsilon) \ne 0$ при $\varepsilon \ne 0$.
+Подробнее про такие обозначения можно почитать в третьей главе Кормена.
+
+{\it {\bf Определение 2.} Число $a$ называют производной функции $f$ в точке $x$, если
+$$f(x + \varepsilon) = f(x) + a \varepsilon + o(\varepsilon)$$
+Иными словами $f(x + \varepsilon) = f(x) + a \varepsilon + g(\varepsilon)$, где $g(\varepsilon) = o(\varepsilon)$.}
+
+Производная функции $f$ в точке $x$ обозначается $f'(x)$
+
+\z{} Осмыслите и проверьте следующие тождества:\par
+\textbf{а)} $\varepsilon^2 = o(\varepsilon)$,\par
+\textbf{б)} $\varepsilon^3 = o(\varepsilon^2)$,\par
+\textbf{в)} $o(\varepsilon^3) + o(\varepsilon^2) = o(\varepsilon^2)$,\par
+\textbf{г)} $\varepsilon = o(1)$,\par
+\textbf{д)} $\varepsilon \cdot o(\varepsilon) = o(\varepsilon^2)$.
+
+\z{} Докажите эквивалентность определений производной.
+
+\z{} Пусть функции $f$ и $g$ дифференцируемы в точке $x$. Найдите производные в точке $x$ у функций $f + g$ и $f \cdot g$ (и докажите, что они существуют).
+
+\z{} Пусть функция $f$ дифференцируема в точке $x$, а $g$ -- в точке $f(x)$. \textbf{а)}~Найдите производную $g(f(x))$ в точке $x$. \textbf{а)} Пусть также $f$ и $g$ взаимно обратны, т. е. $g(f(x)) = x$. Докажите, что $g'(f(x)) = \frac{1}{f'(x)}$.
+
+\z{} Докажите, что $\frac{1}{1 + \varepsilon} = 1 - \varepsilon + o(\varepsilon)$.
+
+\z{} Найдите производную функции $\frac1x$ при $x \ne 0$.
+
+\z{} Пусть функции $f$ и $g$ дифференцируемы в точке $x$ и $g(x) \ne 0$. Найдите производную $\frac{f(x)}{g(x)}$ в точке $x$.
+
+\z{} Найдите производные следующих функций:\par
+\textbf{а)}~$sin$\par
+\textbf{б)}~$cos$\par
+\textbf{в)}~$x^n$ ($n \in \N$)\par
+\textbf{г)}~$x^{-n}$ ($n \in \N$)
+
+Экспонента -- это функция $\exp(x)$, такая что $\exp'(x) = \exp(x)$ и $\exp(0) = 1$. $\exp(x)$ также записывают как $e^{x}$. Логарифм ($\log(x)$) -- это обратная функция к экспоненте, определенная только на положительных числах. Т. е. $\forall x : \log(\exp(x)) = x$ и $\forall x > 0 : \exp(\log(x)) = x$.
+То, что экспонента и логарифм существуют и дифференцируемы на всей своей области определения давайте пока считать очевидным.
+
+\z{} Найдите производную $log(x)$ (при $x > 0$).
+
+\z{* (ненужная)} Помахайте руками и обоснуйте тождество:
+$$\exp(a + b) = \exp(a) \cdot \exp(b)$$
+
+\end{document}
