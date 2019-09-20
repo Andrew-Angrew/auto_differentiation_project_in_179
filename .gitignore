@@ -5,4 +5,4 @@ __pycache__/
 /theory/*.aux
 /theory/*.log
 /theory/*.synctex.gz
-
+/theory/*.out
