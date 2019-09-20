@@ -1,0 +1,99 @@
+\documentclass[12pt,a4paper]{article}
+
+\usepackage[T2A]{fontenc} % Поддержка русских букв
+\usepackage[utf8]{inputenc} % Кодировка utf8
+\usepackage[english, russian]{babel} % Языки: русский, английский
+% \usepackage{pscyr} % Нормальные шрифты
+
+\usepackage{amsmath, amssymb}
+\usepackage{amscd}
+\usepackage{amsthm}
+\usepackage{graphicx}
+\usepackage[left=2cm,right=2cm,top=2cm,bottom=1.5cm]{geometry}
+\usepackage{fancyhdr}
+%\parindent = 0em %расстояние от края в красных строках
+
+\usepackage{graphicx}
+\graphicspath{ {./pic/} }
+
+%для ссылок
+\usepackage{xcolor}
+\usepackage{hyperref}
+\definecolor{linkcolor}{HTML}{799B03} % цвет ссылок
+%\definecolor{urlcolor}{HTML}{799B03} % цвет гиперссылок
+\hypersetup{pdfstartview=FitH,  linkcolor=linkcolor, urlcolor=blue
+	, colorlinks=true}
+
+
+% чтобы itemize работал без лишних пробелов
+\usepackage{enumitem}
+\setlist{nolistsep,
+	% itemsep=0.3cm,
+	% parsep=4pt
+}
+
+\def\Z{\mathbb{Z}}
+\def\N{\mathbb{N}}
+\def\R{\mathbb{R}}
+
+\newcounter{znum}
+\newcommand{\z}[1]{\addtocounter{znum}{1} \textbf{Задача \arabic{znum}#1. }}
+
+\newcounter{defnum}
+\newcommand{\df}[1]{\addtocounter{defnum}{1} \textbf{Определение \arabic{defnum}.} {\it #1}}
+
+\newcommand{\zp}[1]{\par~~~~\textbf{#1)}}
+
+\begin{document}
+\pagestyle{empty}
+
+\begin{center} \Large \textbf{Градиент.}
+\end{center}
+
+$\R^n = \{(x_1,\ldots, x_n)| \forall i : x_i \in \R \}$ -- этом множество наборов из $n$ вещественных чисел. Элементы $\R^n$ мы будем называть векторами и обозначать жирными буквами, а значения отдельных чисел в векторе -- той же буквой, только нежирной и с индексом. Например $x_i$ -- это $i$-тое число в векторе $\mathbf{x}$. Вектора можно складывать и умножать на числа. Любую функцию от $n$ переменных можно считать функцией из $\R^n$ в $\R$. 
+
+
+{\it \textbf{Стандартное скалярное произведение} двух векторов $\mathbf{x}, \mathbf{y} \in \R^n$ это:
+$$ (\mathbf{x}, \mathbf{y}) = \sum_{i = 1}^n x_i \cdot y_i$$
+}
+
+Для функции $\mathbf{u} : \R \to \R^n$, $\mathbf{u}(t) = (u_1(t), \ldots, u_n(t))$. Будем писать, что $\mathbf{u}(t)~=~o(t)$, если
+$$\forall i \in \{1,\ldots, n\} : u_i(t) = o(t). $$
+
+??? разные нормы и их эквивалентность
+
+??? дифференцируемость $\R^n \to \R^m$
+
+\textcolor{red}{переделать!}
+{\it Функция $f$ от $n$ переменных \textbf{дифференцируема} в точке $\mathbf{x}$, если существует такой вектор $\nabla f(\mathbf{x}) \in \R^n$, что для любого $v \in \R^n$
+$$ f(\mathbf{x} + \mathbf{v} \cdot t + o(t)) = f(\mathbf{x}) + (v, \nabla \mathbf{x}) \cdot t + o(t)$$
+Вектор $\nabla f(\mathbf{x})$ называется \textbf{градиентом} функции $f$ в точке $\mathbf{x}$.
+}
+
+\z{} Пусть $f$ и $g$ -- дифференцируемые функции из $\R$ в $\R$ и из $\R^n$ в $\R$ соответственно. Докажите, что $f(g(\mathbf{x}))$ -- дифференцируемая функция из $\R^n$  в $\R$.
+
+\z{} Пусть $f$ и $g$ -- дифференцируемые функции из $\R^n$ в $\R$. Докажите, что следующие функции дифференцируемы (и выразите их градиенты, через градиенты $f$~и~$g$):\par
+\textbf{a)} $f + g$ \par
+\textbf{б)} $f \cdot g$ \par
+\textbf{в)} $f / g$ (в точках $\mathbf{x}$, где $g(\mathbf{x}) \ne 0$)
+
+\z{} Докажите, что $f(g_1(\mathbf{x}), \ldots, g_m(\mathbf{x}))$ -- дифференцируемая функция из $\R^n$ в $\R$, если $g_i: \R^n \to \R$ и $f: \R^m \to \R$ -- дифференцируемы.
+
+\z{} Докажите, что следующие функции $\R^n \to \R$ дифференцируемы: \par
+\textbf{a)} $x_1 \cdot \ldots \cdot x_n$ \par
+\textbf{б)} $\sin(x_1 + \ldots + x_n)$ \par
+\textbf{в)} $\log\left(\frac{1}{1 + \exp(-(\mathbf{x}, \mathbf{w}))}\right)$, где $\mathbf{w}$ -- какой-то вектор из $\R^n$ \par
+\textbf{г)} ??? $softmax(\mathbf{x}) = \frac{(e^{x_1}, \ldots, e^{x_n})}{e^{x_1} + \ldots + e^{x_n}}$\par
+
+
+{\it \textbf{Частная производная} функции $f : \R^n \to \R$ по $i$-той переменной в точке $\mathbf{x}$ это:
+$$ \frac{\partial f(\mathbf{x})}{\partial x_i} = \lim_{\varepsilon \to 0} \frac{f(x_1, \ldots, x_i + \varepsilon,\ldots, x_n) - f(x_1, \ldots, x_i,\ldots, x_n)}{\varepsilon} $$
+Иными словами мы фиксируем все переменные кроме $i$-той, рассматриваем $f$ как функцию от одной переменной и берем ее производную в точке $x_i$.
+}
+
+\z{} Пусть $f : \R^n \to \R$ дифференцируема в точке $\mathbf{x}$. Докажите что:
+$$ \nabla f(\mathbf{x}) = \left(\frac{\partial f(\mathbf{x})}{\partial x_1}, \ldots, \frac{\partial f(\mathbf{x})}{\partial x_n}\right) .$$
+
+\z{* (ненужная)} Докажите, что $f$ дифференцируема в точке $\mathbf{x}$, если ее частные производные определены в некоторой окрестности $\mathbf{x}$ и непрерывны в $\mathbf{x}$.
+
+\end{document}
