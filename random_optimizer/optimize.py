@@ -11,11 +11,11 @@ def optimize(f):
         y = sqrt(1 - x * x)
         p1 = (now[0] + x, now[1] + y)
         p2 = (now[0] + x, now[1] - y)
-        if f(p1) > f(p2):
+        if f(p1) < f(p2):
             p0 = p1
         else:
             p0 = p2
-        if f(p2) > f(now):
+        if f(p2) < f(now):
             now = p2
             way.append(now)
         r = max(1, r - 0.5)
