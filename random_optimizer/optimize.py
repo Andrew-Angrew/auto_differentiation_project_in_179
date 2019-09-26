@@ -15,8 +15,8 @@ def optimize(f):
             p0 = p1
         else:
             p0 = p2
-        if f(p2) < f(now):
-            now = p2
+        if f(p0) < f(now):
+            now = p0
             way.append(now)
         r = max(1, r - 0.5)
     return way
