@@ -20,6 +20,7 @@ def check_optimizer(f):
             raise ValueError("something is wrong")
     if f(a[0]) - f(a[-1]) <= 5:
         raise ValueError("it is a bad optimizer, Mitya luzer")
+    print('everything is OK, Mitya the best")
     
 check_optimizer(f1)
 check_optimizer(f2)

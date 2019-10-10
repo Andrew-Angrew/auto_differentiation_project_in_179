@@ -2,6 +2,8 @@ import random
 from math import *
 
 def optimize(f):
+    def my_key(a):
+        return f(a)
     now = (0, 0)
     way = [now]
     r = 100
@@ -11,10 +13,9 @@ def optimize(f):
         y = sqrt(1 - x * x)
         p1 = (now[0] + x, now[1] + y)
         p2 = (now[0] + x, now[1] - y)
-        if f(p1) < f(p2):
-            p0 = p1
-        else:
-            p0 = p2
+        p3 = (now[0] - x, now[1] + y)
+        p4 = (now[0] - x, now[1] - y)
+        p0 = min(p1, p2, p3, p4, key=my_key)
         if f(p0) < f(now):
             now = p0
             way.append(now)
