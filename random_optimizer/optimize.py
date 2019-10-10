@@ -1,23 +1,21 @@
 import random
-from math import *
+import math
 
-def optimize(f):
-    def my_key(a):
-        return f(a)
+def optimize(f, iterations=1000):
     now = (0, 0)
     way = [now]
     r = 100
-    for i in range(17900):
-        x = random.random()
-        l = random.uniform(0, r)
-        y = sqrt(1 - x * x)
-        p1 = (now[0] + x, now[1] + y)
-        p2 = (now[0] + x, now[1] - y)
-        p3 = (now[0] - x, now[1] + y)
-        p4 = (now[0] - x, now[1] - y)
-        p0 = min(p1, p2, p3, p4, key=my_key)
-        if f(p0) < f(now):
-            now = p0
+
+    def random_vector():
+        angle = random.uniform(0, math.pi)
+        return (r * math.cos(angle), r * math.sin(angle))
+
+    for i in range(iterations):
+        candidates = [random_vector() + now for i in range(4)]
+        best_point = min(candidates, key=f)
+        if f(best_point) < f(now):
+            now = best_point
             way.append(now)
-        r = max(1, r - 0.5)
+        else:
+            r /= 2
     return way
