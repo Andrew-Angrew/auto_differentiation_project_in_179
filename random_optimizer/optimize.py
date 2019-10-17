@@ -6,12 +6,13 @@ def optimize(f, iterations=1000):
     way = [now]
     r = 100
 
-    def random_vector():
-        angle = random.uniform(0, math.pi)
-        return (r * math.cos(angle), r * math.sin(angle))
-
     for i in range(iterations):
-        candidates = [random_vector() + now for i in range(4)]
+        angle = random.uniform(0, math.pi)
+        x, y = now
+        candidates = [
+            (x + r * math.cos(angle), y + r * math.sin(angle)),
+            (x - r * math.cos(angle), y - r * math.sin(angle))
+        ]
         best_point = min(candidates, key=f)
         if f(best_point) < f(now):
             now = best_point
