@@ -71,7 +71,18 @@
 
 \zz{} Пусть $\langle \cdot , \cdot \rangle$ -- скалярное произведение на плоскости. \textbf{а)} Докажите, что существует система координат, относительно которой $\langle \cdot , \cdot \rangle$ является \underline{стандартным} скалярным произведением. б) Докажите то же самое для $\R^n$.
 
-{\it \textbf{Определение 2. Норма} (она же длина) вектора $\mathbf{x} \in \R^n$ это $ \|\mathbf{x}\| = \langle \mathbf{x}, \mathbf{x} \rangle$, (где $\langle \cdot , \cdot \rangle$ -- выбранное нами скалярное произведение)}
+{\it \textbf{Определение 2.} Функция $l: \R^ n \to \R$ называется \textbf{линейной}, если:
+	\begin{itemize}
+		\item $\forall \mathbf{x} \in \R^n, c \in R : l(c \cdot \mathbf{x}) = c \cdot l(\mathbf{x})$
+		\item $\forall \mathbf{x}, \mathbf{y} \in \R^n : l(\mathbf{x} + \mathbf{y}) = l(\mathbf{x}) + l(\mathbf{y})$
+	\end{itemize}
+}
+
+\zz{} Докажите, что линейность функции $l$ равносильна следующему:
+$$ \exists \mathbf{v} \in \R^n : l(\mathbf{x}) = \langle \mathbf{x}, \mathbf{v}\rangle.$$
+
+
+{\it \textbf{Определение 3. Норма} (она же длина) вектора $\mathbf{x} \in \R^n$ это $ \|\mathbf{x}\| = \langle \mathbf{x}, \mathbf{x} \rangle$, (где $\langle \cdot , \cdot \rangle$ -- выбранное нами скалярное произведение)}
 
 \zz{ (неравенство Коши-Буняковского-Шварца)} Докажите что :
 $$ \langle \mathbf{x}, \mathbf{y} \rangle  \leqslant \|\mathbf{x}\| \cdot \|\mathbf{y}\|$$
@@ -87,16 +98,6 @@ $$ \langle \mathbf{x}, \mathbf{y} \rangle  \leqslant \|\mathbf{x}\| \cdot \|\mat
 \z{ (многомерная теорема Пифагора)} а) Пусть вектора $\mathbf{x}$ и $\mathbf{y}$ ортогональны, то есть $\langle \mathbf{x}, \mathbf{y} \rangle = 0$. Убедитесь что $\|\mathbf{x} + \mathbf{y}\| = \sqrt{\|\mathbf{x}\|^2 + \|\mathbf{y}\|^2}$.
 
 б) Пусть есть много попарно ортогональных векторов $\mathbf{x_1}, \mathbf{x_2}, \ldots \mathbf{x_k}$. Докажите что: $$\|\mathbf{x_1} + \mathbf{x_1} + \ldots + \mathbf{x_k}\| = \sqrt{\|\mathbf{x_1}\|^2 + \|\mathbf{x_2}\|^2 + \ldots + \|\mathbf{x_k}\|^2}. $$
-
-{\it \textbf{Определение 3.} Функция $l: \R^ n \to \R$ называется \textbf{линейной}, если:
-\begin{itemize}
-\item $\forall \mathbf{x} \in \R^n, c \in R : l(c \cdot \mathbf{x}) = c \cdot l(\mathbf{x})$
-\item $\forall \mathbf{x}, \mathbf{y} \in \R^n : l(\mathbf{x} + \mathbf{y}) = l(\mathbf{x}) + l(\mathbf{y})$
-\end{itemize}
-}
-
-\zz{} Докажите, что линейность функции $l$ равносильна следующему:
-$$ \exists \mathbf{v} \in \R^n : l(\mathbf{x}) = \langle \mathbf{x}, \mathbf{v}\rangle.$$
 
 \z{} Решите задачи 5 и 8 \href{https://zftsh.online/public/folder\_attachment/a0/a9/a8f7\_061b.pdf?c=006f}{отсюда}. Кстати в этой pdf-ке есть другое доказательство КБШ, но неконцептуальное.
 
