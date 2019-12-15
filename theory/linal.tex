@@ -1,0 +1,116 @@
+\documentclass[12pt,a4paper]{article}
+
+\usepackage[T2A]{fontenc} % Поддержка русских букв
+\usepackage[utf8]{inputenc} % Кодировка utf8
+\usepackage[english, russian]{babel} % Языки: русский, английский
+% \usepackage{pscyr} % Нормальные шрифты
+
+\usepackage{amsmath, amssymb}
+\usepackage{amscd}
+\usepackage{amsthm}
+\usepackage{graphicx}
+\usepackage[left=1.5cm,right=1.5cm,top=2cm,bottom=1.5cm]{geometry}
+\usepackage{fancyhdr}
+%\parindent = 0em %расстояние от края в красных строках
+
+\usepackage{graphicx}
+\graphicspath{ {./pic/} }
+
+%для ссылок
+\usepackage{xcolor}
+\usepackage{hyperref}
+\definecolor{linkcolor}{HTML}{799B03} % цвет ссылок
+%\definecolor{urlcolor}{HTML}{799B03} % цвет гиперссылок
+\hypersetup{pdfstartview=FitH,  linkcolor=linkcolor, urlcolor=blue
+	, colorlinks=true}
+
+
+% чтобы itemize работал без лишних пробелов
+\usepackage{enumitem}
+\setlist{nolistsep,
+	% itemsep=0.3cm,
+	% parsep=4pt
+}
+
+\def\Z{\mathbb{Z}}
+\def\N{\mathbb{N}}
+\def\R{\mathbb{R}}
+\def\E{\mathbb{E}}
+\def\D{\mathbb{D}}
+
+\newcounter{znum}
+\newcommand{\zz}[1]{\addtocounter{znum}{1} \textbf{Задача \arabic{znum}#1. }}
+\newcommand{\z}[1]{\addtocounter{znum}{1} Задача \arabic{znum}#1. }
+
+\newcounter{defnum}
+\newcommand{\df}[1]{\addtocounter{defnum}{1} \textbf{Определение \arabic{defnum}.} {\it #1}}
+
+\newcommand{\zp}[1]{\par~~~~\textbf{#1)}}
+
+\begin{document}
+\pagestyle{empty}
+
+\begin{center} \Large \textbf{Линал++.}
+\end{center}
+
+Вектора из $\R^n$ будем обозначать жирными буквами, а значения отдельных чисел в векторе -- той же буквой, только нежирной и с индексом. Например $x_i$ -- это $i$-тое число в векторе $\mathbf{x}$. \textbf{Жирные} задачи важны для понимания дальнейшего материала, а не жирные просто к слову пришлись.
+
+{\it \textbf{Определение 1. Cкалярное произведение} на $\R^n$ это любая функция $\langle \cdot , \cdot \rangle$ от двух векторов такая что:\par
+\begin{itemize}
+	\item $\langle \mathbf{x}, \mathbf{y} \rangle = \langle \mathbf{y}, \mathbf{x} \rangle$ (симметричность)
+	\item $\langle \mathbf{x}_1 + \mathbf{x}_2, \mathbf{y} \rangle = \langle \mathbf{x}_1, \mathbf{y} \rangle + \langle \mathbf{x}_2, \mathbf{y} \rangle$  и $\langle c \cdot \mathbf{x}, \mathbf{y} \rangle = c \cdot \langle \mathbf{x}, \mathbf{y} \rangle$ (билинейность)
+	\item $\langle \mathbf{x}, \mathbf{x} \rangle \geqslant 0$ при этом  $\langle \mathbf{x}, \mathbf{x} \rangle = 0 \Leftrightarrow \mathbf{x} = \overrightarrow{\mathbf{0}}$ (положительная определенность)
+\end{itemize}
+}
+
+\zz{} Проверьте, что операция $ \langle \mathbf{x}, \mathbf{y} \rangle = \sum_{i = 1}^n x_i \cdot y_i$ является скалярным произведением. Ее называют {\it стандартным скалярным произведением}.
+
+\zz{} Проверьте, что скалярное произведение векторов на плоскости из геометрии (произведение длин на косинус) является скалярным произведением в смысле определения 1.
+
+\z{} С легкостью выведите теорему косинусов из предыдущей задачи.
+
+\zz{} Пусть $\langle \cdot , \cdot \rangle$ -- скалярное произведение на плоскости. \textbf{а)} Докажите, что существует система координат, относительно которой $\langle \cdot , \cdot \rangle$ является \underline{стандартным} скалярным произведением. б) Докажите то же самое для $\R^n$.
+
+{\it \textbf{Определение 2.} Функция $l: \R^ n \to \R$ называется \textbf{линейной}, если:
+	\begin{itemize}
+		\item $\forall \mathbf{x} \in \R^n, c \in R : l(c \cdot \mathbf{x}) = c \cdot l(\mathbf{x})$
+		\item $\forall \mathbf{x}, \mathbf{y} \in \R^n : l(\mathbf{x} + \mathbf{y}) = l(\mathbf{x}) + l(\mathbf{y})$
+	\end{itemize}
+}
+
+\zz{} Докажите, что линейность функции $l$ равносильна следующему:
+$$ \exists \mathbf{v} \in \R^n : l(\mathbf{x}) = \langle \mathbf{x}, \mathbf{v}\rangle.$$
+
+
+{\it \textbf{Определение 3. Норма} (она же длина) вектора $\mathbf{x} \in \R^n$ это $ \|\mathbf{x}\| = \langle \mathbf{x}, \mathbf{x} \rangle$, (где $\langle \cdot , \cdot \rangle$ -- выбранное нами скалярное произведение)}
+
+\zz{ (неравенство Коши-Буняковского-Шварца)} Докажите что :
+$$ \langle \mathbf{x}, \mathbf{y} \rangle  \leqslant \|\mathbf{x}\| \cdot \|\mathbf{y}\|$$
+\textbf{а)} для $\R^2$ $\Rightarrow$
+\textbf{б)} для $\R^n$
+в) для любых бесконечномерных пространств над $\R$.
+
+\zz{} Проверьте свойства нормы:\par
+\textbf{а)} $\|\mathbf{x}\| \geqslant 0$, при этом $\|\mathbf{x}\| = 0 \Leftrightarrow \mathbf{x} = \overrightarrow{\mathbf{0}}$. \par
+\textbf{б)} $\|c \cdot \mathbf{x}\| = |c| \cdot \|\mathbf{x}\|$. \par
+\textbf{в)} (многомерное неравенство треугольника) $\|\mathbf{x} + \mathbf{y}\| \leqslant \|\mathbf{x}\| + \|\mathbf{y}\|$ (используйте КБШ).
+
+\z{ (многомерная теорема Пифагора)} а) Пусть вектора $\mathbf{x}$ и $\mathbf{y}$ ортогональны, то есть $\langle \mathbf{x}, \mathbf{y} \rangle = 0$. Убедитесь что $\|\mathbf{x} + \mathbf{y}\| = \sqrt{\|\mathbf{x}\|^2 + \|\mathbf{y}\|^2}$.
+
+б) Пусть есть много попарно ортогональных векторов $\mathbf{x_1}, \mathbf{x_2}, \ldots \mathbf{x_k}$. Докажите что: $$\|\mathbf{x_1} + \mathbf{x_1} + \ldots + \mathbf{x_k}\| = \sqrt{\|\mathbf{x_1}\|^2 + \|\mathbf{x_2}\|^2 + \ldots + \|\mathbf{x_k}\|^2}. $$
+
+\z{} Решите задачи 5 и 8 \href{https://zftsh.online/public/folder\_attachment/a0/a9/a8f7\_061b.pdf?c=006f}{отсюда}. Кстати в этой pdf-ке есть другое доказательство КБШ, но неконцептуальное.
+
+{\it \textbf{Определение 4. Ковариация} двух случайных величин $X$ и $Y$ это
+$$Cov(X, Y) = \E (X - \E X)(Y - \E Y).$$
+}
+
+{\it \textbf{Определение 5. Дисперсия} случайной величины $X$ это $\D (X) = Cov(X, X)$.}
+
+{\it \textbf{Определение 6. Корреляция} двух случайных величин $X$ и $Y$ это
+$$corr(X, Y) = \frac{Cov(X, Y)}{\sqrt{\D X \cdot \D Y}}.$$}
+
+\z{} Докажите, что корреляция может принимать значения только в отрезке $[-1, 1]$. Т. е. для любых $X$ и $Y$ верно: $-1 \leqslant corr(X, Y) \leqslant 1$.
+
+
+\end{document}
