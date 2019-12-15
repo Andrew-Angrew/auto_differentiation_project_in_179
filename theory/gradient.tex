@@ -9,7 +9,7 @@
 \usepackage{amscd}
 \usepackage{amsthm}
 \usepackage{graphicx}
-\usepackage[left=2cm,right=2cm,top=2cm,bottom=1.5cm]{geometry}
+\usepackage[left=1.5cm,right=1.5cm,top=2cm,bottom=1.5cm]{geometry}
 \usepackage{fancyhdr}
 %\parindent = 0em %расстояние от края в красных строках
 
@@ -35,9 +35,12 @@
 \def\Z{\mathbb{Z}}
 \def\N{\mathbb{N}}
 \def\R{\mathbb{R}}
+\def\E{\mathbb{E}}
+\def\D{\mathbb{D}}
 
 \newcounter{znum}
-\newcommand{\z}[1]{\addtocounter{znum}{1} \textbf{Задача \arabic{znum}#1. }}
+\newcommand{\zz}[1]{\addtocounter{znum}{1} \textbf{Задача \arabic{znum}#1. }}
+\newcommand{\z}[1]{\addtocounter{znum}{1} Задача \arabic{znum}#1. }
 
 \newcounter{defnum}
 \newcommand{\df}[1]{\addtocounter{defnum}{1} \textbf{Определение \arabic{defnum}.} {\it #1}}
@@ -50,25 +53,16 @@
 \begin{center} \Large \textbf{Градиент.}
 \end{center}
 
-$\R^n = \{(x_1,\ldots, x_n)| \forall i : x_i \in \R \}$ -- этом множество наборов из $n$ вещественных чисел. Элементы $\R^n$ мы будем называть векторами и обозначать жирными буквами, а значения отдельных чисел в векторе -- той же буквой, только нежирной и с индексом. Например $x_i$ -- это $i$-тое число в векторе $\mathbf{x}$. Вектора можно складывать и умножать на числа. Любую функцию от $n$ переменных можно считать функцией из $\R^n$ в $\R$. 
+Любую функцию от $n$ переменных можно считать функцией из $\R^n$ в $\R$. 
+Пусть у нас есть величина $q(\mathbf{u})$, зависящая от вектора $\mathbf{u} \in \R^n$. Будем говорить, что $q(\mathbf{u}) = o(\mathbf{u})$ (читается "$q(\mathbf{u})$ есть о маленькое от $\mathbf{u}$"), если для любой последовательности векторов $\mathbf{u}_1, \mathbf{u}_2, \ldots \in \R$ такой что $\|\mathbf{u}_i\| \to 0$ последовательность $q(\mathbf{u}_i)$ стремится к нулю.
 
 
-{\it \textbf{Стандартное скалярное произведение} двух векторов $\mathbf{x}, \mathbf{y} \in \R^n$ это:
-$$ (\mathbf{x}, \mathbf{y}) = \sum_{i = 1}^n x_i \cdot y_i$$
+{\it Функция $f$ от $n$ переменных \textbf{\href{https://ru.wikipedia.org/wiki/\%D0\%94\%D0\%B8\%D1\%84\%D1\%84\%D0\%B5\%D1\%80\%D0\%B5\%D0\%BD\%D1\%86\%D0\%B8\%D1\%80\%D1\%83\%D0\%B5\%D0\%BC\%D0\%B0\%D1\%8F_\%D1\%84\%D1\%83\%D0\%BD\%D0\%BA\%D1\%86\%D0\%B8\%D1\%8F\#\%D0\%A4\%D1\%83\%D0\%BD\%D0\%BA\%D1\%86\%D0\%B8\%D0\%B8_\%D0\%BD\%D0\%B5\%D1\%81\%D0\%BA\%D0\%BE\%D0\%BB\%D1\%8C\%D0\%BA\%D0\%B8\%D1\%85_\%D0\%BF\%D0\%B5\%D1\%80\%D0\%B5\%D0\%BC\%D0\%B5\%D0\%BD\%D0\%BD\%D1\%8B\%D1\%85}{дифференцируема}} в точке $\mathbf{x}$, если существует такой вектор $\nabla f(\mathbf{x}) \in \R^n$, что для любого $v \in \R^n$
+$$ f(\mathbf{x} + \mathbf{v}) = f(\mathbf{x}) + \langle \mathbf{v}, \nabla f(\mathbf{x}) \rangle \cdot + o(\mathbf{v})$$
+Вектор $\nabla f(\mathbf{x})$ называется \textbf{\href{https://ru.wikipedia.org/wiki/\%D0\%93\%D1\%80\%D0\%B0\%D0\%B4\%D0\%B8\%D0\%B5\%D0\%BD\%D1\%82}{градиентом}} функции $f$ в точке $\mathbf{x}$.
 }
 
-Для функции $\mathbf{u} : \R \to \R^n$, $\mathbf{u}(t) = (u_1(t), \ldots, u_n(t))$. Будем писать, что $\mathbf{u}(t)~=~o(t)$, если
-$$\forall i \in \{1,\ldots, n\} : u_i(t) = o(t). $$
-
-??? разные нормы и их эквивалентность
-
-??? дифференцируемость $\R^n \to \R^m$
-
-\textcolor{red}{переделать!}
-{\it Функция $f$ от $n$ переменных \textbf{дифференцируема} в точке $\mathbf{x}$, если существует такой вектор $\nabla f(\mathbf{x}) \in \R^n$, что для любого $v \in \R^n$
-$$ f(\mathbf{x} + \mathbf{v} \cdot t + o(t)) = f(\mathbf{x}) + (v, \nabla \mathbf{x}) \cdot t + o(t)$$
-Вектор $\nabla f(\mathbf{x})$ называется \textbf{градиентом} функции $f$ в точке $\mathbf{x}$.
-}
+\zz{} эквивалентность обычным определениям для n=1
 
 \z{} Пусть $f$ и $g$ -- дифференцируемые функции из $\R$ в $\R$ и из $\R^n$ в $\R$ соответственно. Докажите, что $f(g(\mathbf{x}))$ -- дифференцируемая функция из $\R^n$  в $\R$.
 
@@ -77,14 +71,13 @@ $$ f(\mathbf{x} + \mathbf{v} \cdot t + o(t)) = f(\mathbf{x}) + (v, \nabla \mathb
 \textbf{б)} $f \cdot g$ \par
 \textbf{в)} $f / g$ (в точках $\mathbf{x}$, где $g(\mathbf{x}) \ne 0$)
 
-\z{} Докажите, что $f(g_1(\mathbf{x}), \ldots, g_m(\mathbf{x}))$ -- дифференцируемая функция из $\R^n$ в $\R$, если $g_i: \R^n \to \R$ и $f: \R^m \to \R$ -- дифференцируемы.
+\z{} Докажите, что $f(g_1(\mathbf{x}), \ldots, g_m(\mathbf{x}))$ -- всюду дифференцируемая функция из $\R^n$ в $\R$, если $g_i: \R^n \to \R$ и $f: \R^m \to \R$ всюду дифференцируемы.
 
 \z{} Докажите, что следующие функции $\R^n \to \R$ дифференцируемы: \par
 \textbf{a)} $x_1 \cdot \ldots \cdot x_n$ \par
 \textbf{б)} $\sin(x_1 + \ldots + x_n)$ \par
 \textbf{в)} $\log\left(\frac{1}{1 + \exp(-(\mathbf{x}, \mathbf{w}))}\right)$, где $\mathbf{w}$ -- какой-то вектор из $\R^n$ \par
-\textbf{г)} ??? $softmax(\mathbf{x}) = \frac{(e^{x_1}, \ldots, e^{x_n})}{e^{x_1} + \ldots + e^{x_n}}$\par
-
+\textbf{г)} $softmax(\mathbf{x}) = \frac{(e^{x_1}, \ldots, e^{x_n})}{e^{x_1} + \ldots + e^{x_n}}$\par
 
 {\it \textbf{Частная производная} функции $f : \R^n \to \R$ по $i$-той переменной в точке $\mathbf{x}$ это:
 $$ \frac{\partial f(\mathbf{x})}{\partial x_i} = \lim_{\varepsilon \to 0} \frac{f(x_1, \ldots, x_i + \varepsilon,\ldots, x_n) - f(x_1, \ldots, x_i,\ldots, x_n)}{\varepsilon} $$
@@ -95,5 +88,9 @@ $$ \frac{\partial f(\mathbf{x})}{\partial x_i} = \lim_{\varepsilon \to 0} \frac{
 $$ \nabla f(\mathbf{x}) = \left(\frac{\partial f(\mathbf{x})}{\partial x_1}, \ldots, \frac{\partial f(\mathbf{x})}{\partial x_n}\right) .$$
 
 \z{* (ненужная)} Докажите, что $f$ дифференцируема в точке $\mathbf{x}$, если ее частные производные определены в некоторой окрестности $\mathbf{x}$ и непрерывны в $\mathbf{x}$.
+
+\zz{} Градиент направление самого быстрого....
+
+??? дифференцируемость $\R^n \to \R^m$
 
 \end{document}
