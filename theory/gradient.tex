@@ -77,7 +77,7 @@ $$ f(\mathbf{x} + \mathbf{v}) = f(\mathbf{x}) + \langle \mathbf{v}, \nabla f(\ma
 a) $x_1 \cdot \ldots \cdot x_n$ \par
 б) $\sin(x_1 + \ldots + x_n)$ \par
 \textbf{в)} $\log(\sigma(\langle \mathbf{x}, \mathbf{w} \rangle))$, где $\sigma(x) = \frac{1}{1 + e^{-x}} = \frac{e^{x}}{1 + e^{x}}.$\par
-\textbf{г)} $softmax(\mathbf{x}) = \frac{(e^{x_1}, \ldots, e^{x_n})}{e^{x_1} + \ldots + e^{x_n}}$\par
+\textbf{г)} И эта функция $\R^n \to \R^n$: $\mathrm{softmax}(\mathbf{x}) = \frac{(e^{x_1}, \ldots, e^{x_n})}{e^{x_1} + \ldots + e^{x_n}}$\par
 
 {\it \textbf{Частная производная} функции $f : \R^n \to \R$ по $i$-той переменной в точке $\mathbf{x}$ это:
 $$ \frac{\partial f(\mathbf{x})}{\partial x_i} = \lim_{\varepsilon \to 0} \frac{f(x_1, \ldots, x_i + \varepsilon,\ldots, x_n) - f(x_1, \ldots, x_i,\ldots, x_n)}{\varepsilon} $$
@@ -88,7 +88,7 @@ $$ \frac{\partial f(\mathbf{x})}{\partial x_i} = \lim_{\varepsilon \to 0} \frac{
 $$ \nabla f(\mathbf{x}) = \left(\frac{\partial f(\mathbf{x})}{\partial x_1}, \ldots, \frac{\partial f(\mathbf{x})}{\partial x_n}\right) .$$
 
 \zz{} Пусть мы находимся в точке $\mathbf{a}$, $\nabla f(\mathbf{a}) = \mathbf{g} \ne \overrightarrow{\mathbf{0}}$
- и $\| \mathbf{v} \| = \delta \to 0$.
+ и $\| \mathbf{v} \|$. Предроло $ = \delta \to 0$.
 
 \textbf{а)} Убедитесь что: $ f(\mathbf{a} + \mathbf{v}) = f(\mathbf{a}) + \langle \mathbf{v}, \mathbf{g} \rangle + o(\delta)$\par
 \textbf{б)} Для любого вектора $\mathbf{v}$ обозначим через $\mathbf{v}_\delta$ вектор $\delta \cdot \frac{\mathbf{g}}{\|\mathbf{g}\|}$ (шаг в направлении $\mathbf{v}$ длины $\delta$). Попробуем сдвинуться на $\delta$ так, чтобы функция $f$ возросла как можно больше. Докажите, что для любого направления $\mathbf{v}$, непропорционального градиенту $\mathbf{g}$,  для достаточно маленького $\delta$ $f(\mathbf{a} + \mathbf{v}_\delta) < f(\mathbf{a} + \mathbf{g}_\delta)$. Таким образом градиент указывает направление вдоль которого функция возрастает максимально быстро.
