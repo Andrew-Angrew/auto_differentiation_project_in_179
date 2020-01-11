@@ -67,11 +67,21 @@
 
 \zz{} Проверьте, что скалярное произведение векторов на плоскости из геометрии (произведение длин на косинус) является скалярным произведением в смысле определения 1.
 
-\z{} С легкостью выведите теорему косинусов из предыдущей задачи.
+\z{} С легкостью (и \href{https://www.youtube.com/watch?v=NpYzlF1c\_1I}{алгебраично!}) выведите теорему косинусов из предыдущей задачи.
 
-\zz{} Пусть $\langle \cdot , \cdot \rangle$ -- скалярное произведение на плоскости. \textbf{а)} Докажите, что существует система координат, относительно которой $\langle \cdot , \cdot \rangle$ является \underline{стандартным} скалярным произведением. б) Докажите то же самое для $\R^n$.
+{\it \textbf{Определение 2. Норма} (она же длина) вектора $\mathbf{x} \in \R^n$ это $ \|\mathbf{x}\| = \sqrt{\langle \mathbf{x}, \mathbf{x} \rangle}$, (заметьте, что определение нормы зависит от выбора скалярного произведения)}
 
-{\it \textbf{Определение 2.} Функция $l: \R^ n \to \R$ называется \textbf{линейной}, если:
+\z{ (многомерная теорема Пифагора)} а) Пусть вектора $\mathbf{x}$ и $\mathbf{y}$ ортогональны, то есть $\langle \mathbf{x}, \mathbf{y} \rangle = 0$. Убедитесь что $\|\mathbf{x} + \mathbf{y}\| = \sqrt{\|\mathbf{x}\|^2 + \|\mathbf{y}\|^2}$.
+
+б) Пусть есть много попарно ортогональных векторов $\mathbf{x_1}, \mathbf{x_2}, \ldots \mathbf{x_k}$. Докажите что: $$\|\mathbf{x_1} + \mathbf{x_1} + \ldots + \mathbf{x_k}\| = \sqrt{\|\mathbf{x_1}\|^2 + \|\mathbf{x_2}\|^2 + \ldots + \|\mathbf{x_k}\|^2}. $$
+
+\zz{} Пусть $\langle \cdot , \cdot \rangle$ -- (произвольное) скалярное произведение на плоскости. \par
+\textbf{а)} Докажите, что есть базис $(v_1, v_2)$, такой что $\langle v_1, v_2 \rangle = 0$ и $\|v_1\| = \|v_2\| = 1$ (такой базис называется {\it \textbf{ортонормальным}}).\par
+\textbf{б)} Докажите, что в системе координат, заданной ортонормальным базисом  $\langle \cdot , \cdot \rangle$ является \underline{стандартным} скалярным произведением.\par
+в) Обобщите результат предыдущих пунктов на $\R^n$.\par
+г) Выведите из \textbf{б)} эквивалентность двух определений скалярного произведения на плоскости (через косинус и через координаты).
+
+{\it \textbf{Определение 3.} Функция $l: \R^ n \to \R$ называется \textbf{линейной}, если:
 	\begin{itemize}
 		\item $\forall \mathbf{x} \in \R^n, c \in \R : l(c \cdot \mathbf{x}) = c \cdot l(\mathbf{x})$
 		\item $\forall \mathbf{x}, \mathbf{y} \in \R^n : l(\mathbf{x} + \mathbf{y}) = l(\mathbf{x}) + l(\mathbf{y})$
@@ -82,24 +92,22 @@
 $$ \exists \mathbf{v} \in \R^n : l(\mathbf{x}) = \langle \mathbf{x}, \mathbf{v}\rangle.$$
 
 
-{\it \textbf{Определение 3. Норма} (она же длина) вектора $\mathbf{x} \in \R^n$ это $ \|\mathbf{x}\| = \sqrt{\langle \mathbf{x}, \mathbf{x} \rangle}$, (где $\langle \cdot , \cdot \rangle$ -- выбранное нами скалярное произведение)}
-
-\zz{ (неравенство Коши-Буняковского-Шварца)} Докажите что :
-$$ \langle \mathbf{x}, \mathbf{y} \rangle  \leqslant \|\mathbf{x}\| \cdot \|\mathbf{y}\|$$
-\textbf{а)} для $\R^2$ $\Rightarrow$
-\textbf{б)} для $\R^n$
-в) для любых бесконечномерных пространств над $\R$.
+\zz{ (неравенство Коши-Буняковского-Шварца)} Докажите\footnote{
+	Есть еще \href{https://ru.wikipedia.org/wiki/\%D0\%9D\%D0\%B5\%D1\%80\%D0\%B0\%D0\%B2\%D0\%B5\%D0\%BD\%D1\%81\%D1\%82\%D0\%B2\%D0\%BE\_\%D0\%9A\%D0\%BE\%D1\%88\%D0\%B8\_\%E2\%80\%94\_\%D0\%91\%D1\%83\%D0\%BD\%D1\%8F\%D0\%BA\%D0\%BE\%D0\%B2\%D1\%81\%D0\%BA\%D0\%BE\%D0\%B3\%D0\%BE\#\%D0\%94\%D0\%BE\%D0\%BA\%D0\%B0\%D0\%B7\%D0\%B0\%D1\%82\%D0\%B5\%D0\%BB\%D1\%8C\%D1\%81\%D1\%82\%D0\%B2\%D0\%BE}{стандартное доказательство} и 
+	\href{https://zftsh.online/public/folder\_attachment/a0/a9/a8f7\_061b.pdf?c=006f}{мерзкое~через~буковки}.} что :
+$$ \langle \mathbf{x}, \mathbf{y} \rangle  \leqslant \|\mathbf{x}\| \cdot \|\mathbf{y}\|$$\par
+\textbf{а)} для $\R^2$ (через \textbf{5а, б})\par
+\textbf{б)} для $\R^n$ (через пункт \textbf{а})\par
+в) для любых (возможно бесконечномерных) векторных пространств над $\R$.
 
 \zz{} Проверьте свойства нормы:\par
 \textbf{а)} $\|\mathbf{x}\| \geqslant 0$, при этом $\|\mathbf{x}\| = 0 \Leftrightarrow \mathbf{x} = \overrightarrow{\mathbf{0}}$. \par
 \textbf{б)} $\|c \cdot \mathbf{x}\| = |c| \cdot \|\mathbf{x}\|$. \par
 \textbf{в)} (многомерное неравенство треугольника) $\|\mathbf{x} + \mathbf{y}\| \leqslant \|\mathbf{x}\| + \|\mathbf{y}\|$ (используйте КБШ).
 
-\z{ (многомерная теорема Пифагора)} а) Пусть вектора $\mathbf{x}$ и $\mathbf{y}$ ортогональны, то есть $\langle \mathbf{x}, \mathbf{y} \rangle = 0$. Убедитесь что $\|\mathbf{x} + \mathbf{y}\| = \sqrt{\|\mathbf{x}\|^2 + \|\mathbf{y}\|^2}$.
+\z{} Пусть $a + b + c = 1$. Докажите, что $a^2 + b^2 + c^2 \geqslant \frac13$
 
-б) Пусть есть много попарно ортогональных векторов $\mathbf{x_1}, \mathbf{x_2}, \ldots \mathbf{x_k}$. Докажите что: $$\|\mathbf{x_1} + \mathbf{x_1} + \ldots + \mathbf{x_k}\| = \sqrt{\|\mathbf{x_1}\|^2 + \|\mathbf{x_2}\|^2 + \ldots + \|\mathbf{x_k}\|^2}. $$
-
-\z{} Решите задачи 5 и 8 \href{https://zftsh.online/public/folder\_attachment/a0/a9/a8f7\_061b.pdf?c=006f}{отсюда}. Кстати в этой pdf-ке есть другое доказательство КБШ, но неконцептуальное.
+\z{} Пусть $a_1,\ldots, a_n > 0$. Докажите, что $(a_1 + \ldots + a_n) \left(\frac1{a_1} + \ldots + \frac1{a_n}\right) \geqslant n^2$
 
 {\it \textbf{Определение 4. Ковариация} двух случайных величин $X$ и $Y$ это
 $$Cov(X, Y) = \E (X - \E X)(Y - \E Y).$$
